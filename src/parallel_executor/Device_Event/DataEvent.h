@@ -10,7 +10,6 @@ class DataEvent : public DeviceEvent{
 public:
     DataEvent(const std::shared_ptr<Device>& device) : DeviceEvent(device) {};
     std::string toString() const override;
-    std::shared_ptr<Device> device;
 };
 
 #endif //PARALLEL_EXECUTOR_DATAEVENT_H
