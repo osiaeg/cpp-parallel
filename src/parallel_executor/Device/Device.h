@@ -4,7 +4,7 @@
 
 #ifndef PARALLEL_EXECUTOR_DEVICE_H
 #define PARALLEL_EXECUTOR_DEVICE_H
-#include "Event.h"
+#include <iostream>
 
 class Device {
 public:
