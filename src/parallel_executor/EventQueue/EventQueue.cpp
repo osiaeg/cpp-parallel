@@ -15,8 +15,7 @@ std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duratio
     auto endTime = std::chrono::steady_clock::now() + duration;
 
     while (queue.empty()) {
-        auto res = cv.wait_until(lock, endTime);
-        if (res == std::cv_status::timeout) {
+        if (cv.wait_until(lock, endTime) == std::cv_status::timeout) {
             return nullptr;
         }
     }

@@ -6,11 +6,13 @@
 #define PARALLEL_EXECUTOR_STARTEDEVENT_H
 
 
+#include <utility>
+
 #include "DeviceEvent.h"
 
 class StartedEvent : public DeviceEvent {
 public:
-    StartedEvent(std::shared_ptr<Device> device) : DeviceEvent(device){};
+    explicit StartedEvent(const std::shared_ptr<Device>& device) : DeviceEvent(device){};
     std::string toString() const override;
 };
 

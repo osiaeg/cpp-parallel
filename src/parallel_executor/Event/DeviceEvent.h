@@ -11,9 +11,12 @@
 
 class DeviceEvent : public Event {
 public:
-    DeviceEvent(std::shared_ptr<Device> device);
+    explicit DeviceEvent(std::shared_ptr<Device> device) : device(std::move(device)) {
+    };
+
     std::string toString() const override;
-private:
+
+protected:
     std::shared_ptr<Device> device;
 };
 

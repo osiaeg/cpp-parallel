@@ -5,6 +5,7 @@
 #ifndef PARALLEL_EXECUTOR_DEVICE_H
 #define PARALLEL_EXECUTOR_DEVICE_H
 #include <iostream>
+#include <thread>
 
 class Device {
 public:

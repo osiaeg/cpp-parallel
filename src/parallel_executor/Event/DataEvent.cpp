@@ -5,6 +5,6 @@
 #include "DataEvent.h"
 
 std::string DataEvent::toString() const {
-    return DeviceEvent::toString() + "Data";
+    return DeviceEvent::toString() + "Data: " + device->getDataAsString();
 }
 

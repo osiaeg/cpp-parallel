@@ -9,5 +9,5 @@ std::string DeviceA::getName() {
 }
 
 std::string DeviceA::getDataAsString() {
-    return "Data from device A: ";
+    return "Hello world!";
 }
