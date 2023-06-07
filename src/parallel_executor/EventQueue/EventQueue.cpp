@@ -12,12 +12,9 @@ void EventQueue::push(const std::shared_ptr<const Event> &event) {
 
 std::shared_ptr<const Event> EventQueue::pop(const std::chrono::seconds &duration) {
     std::unique_lock<std::mutex> lock(mtx);
-    auto endTime = std::chrono::steady_clock::now() + duration;
 
-    while (queue.empty()) {
-        if (cv.wait_until(lock, endTime) == std::cv_status::timeout) {
-            return nullptr;
-        }
+    if ( !cv.wait_for(lock, duration, [this]{ return !queue.empty(); }) ) {
+        return nullptr ;
     }
 
     std::shared_ptr<const Event> res = queue.front();

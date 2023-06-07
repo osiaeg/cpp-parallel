@@ -11,6 +11,7 @@ class Device {
 public:
     virtual std::string getName() = 0;
     virtual std::string getDataAsString() = 0;
+    virtual ~Device() = default;
 };
 
 #endif //PARALLEL_EXECUTOR_DEVICE_H
